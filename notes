@@ -1,0 +1,15 @@
+what the scouting server should do:
+globally:
+	create account, login and logout
+	have account actions and stuff
+	templates
+	contact page
+
+for scouters:
+	display a form and be able to submit it
+
+for data:
+	show a big table of the retrieved data
+	have a scouting report generated
+	have a team page
+	have a match page
