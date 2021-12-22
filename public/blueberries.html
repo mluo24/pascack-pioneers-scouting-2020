@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Scouting</title>
+  </head>
+  
+  <body>
+     <div class="container">
+    
+<h1 style="text-align:center;font-size:50px;">Scouting Manual Form</h1>
+<h2 style="text-align:center;font-size:15px;"><a href="raspberries.html">Home</a> - <a href="blueberries.html">Manual Form</a> - <a href="blueberries.php">Back to Login</a></h2>
+  <form>
+    <h2 id="formsection1"><b>AUTONOMOUS</b></h2>
+    
+    <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0"><b>Starting Location (Relative to Goal)</b></legend>
+      
+        <!--<label id="formsubsection1"><b>Starting Location (Relative to Goal)</b></label>-->
+        <div class="col-sm-10">
+            <div class="form-check form-check-inline ">
+              <input class="form-check-input" type="radio" name="startl" id="closestart" value="1">
+              <label class="form-check-label" for="closestart">Closest</label>
+            </div>
+            <div class="form-check form-check-inline ">
+              <input class="form-check-input" type="radio" name="startl" id="middlestart" value="2">
+              <label class="form-check-label" for="middlestart">Middle</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="startl" id="farstart" value="3">
+              <label class="form-check-label" for="farstart">Farthest</label>
+            </div>
+        </div>
+        </div>
+    </fieldset>
+        
+        
+    <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0"><b>Initiation Line</b></legend>
+      <div class="col-sm-10">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="intline" id="leftinit" value="0">
+          <label class="form-check-label" for="leftinit">Left&nbsp;Initiation&nbsp;Line</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="intline" id="noinit" value="1">
+          <label class="form-check-label" for="noinit">DIDN'T&nbsp;Leave&nbsp;Initiation&nbsp;Line</label>
+        </div>
+        </div>
+    </div>
+    </fieldset>
+
+       <div class ="form-row">
+           
+            <div class="form-group col-md">
+            <label class = "" id="bottomportnum" for="abottom">Bottom Port - Number of Power Cells</label>
+                    <div class="input-group" id="abotform">
+                    <input value="0" name="abot" class="form-control" minimum="0" type="number" id="abottom">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" onclick="decrValue('abottom')" type="button">-</button>
+                        <button class="btn btn-outline-secondary" onclick="incrValue('abottom')" type="button">+</button>
+                      </div>
+                    </div>
+            </div>
+               
+            <div class="form-group col-md">
+            <label class = "" id="topportnum" for="atop">Top Port - Number of Power Cells</label>
+                        <div class="input-group" id="atopform">
+                        <input value="0" name="atop" class="form-control" minimum="0" type="number" id="atop">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" onclick="decrValue('atop')" type="button">-</button>
+                            <button class="btn btn-outline-secondary" onclick="incrValue('atop')" type="button">+</button>
+                          </div>
+                        </div>
+            </div>
+            
+            <div class="form-group col-md">
+                <label class = "" id="innerportnum" for="ainner">Inner Port - Number of Power Cells</label>
+                        <div class="input-group" id="ainnform">
+                        <input value="0" name="ainn" class="form-control" min="0" type="number" id="ainner">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" onclick="decrValue('ainner')" type="button">-</button>
+                            <button class="btn btn-outline-secondary" onclick="incrValue('ainner')" type="button">+</button>
+                          </div>
+                        </div>
+            </div>
+            
+        </div>
+            
+        <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0"><b>Ability to Pickup in Autonomous</b></legend>
+        
+                <div class="col-sm-10">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="apick" id="canpickup" value="1">
+                      <label class="form-check-label" for="canpickup">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="apick" id="nopickup" value="0">
+                      <label class="form-check-label" for="nopickup">No</label>
+                    </div>
+                </div>
+                
+            </div>
+        </fieldset>
+        
+        <h2 id="formsection1">TELE-OP</h2>
+        <h3>Power Cells Variables</h3>
+
+        <div class="form-row">
+
+            <div class="form-group col-md">
+                <label class = "small" id="bottomportnum" for="abottom">Lower Port - Number of Power Cells</label>
+                    <div class="input-group" id="abotform">
+                        <input value="0" name="tbot" class="form-control" minimum="0" type="number" id="bottom">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" onclick="decrValue('bottom')" type="button">-</button>
+                            <button class="btn btn-outline-secondary" onclick="incrValue('bottom')" type="button">+</button>
+                        </div>
+                    </div>
+            </div>
+          
+            <div class="form-group col-md">
+                <label class = "small" id="topportnum" for="atop">Top Port - Number of Power Cells</label>
+                    <div class="input-group" id="atopform">
+                        <input value="0" name="ttop" class="form-control" minimum="0" type="number" id="top">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" onclick="decrValue('top')" type="button">-</button>
+                            <button class="btn btn-outline-secondary" onclick="incrValue('top')" type="button">+</button>
+                        </div>
+                    </div>
+            </div>
+           
+            <div class="form-group col-md">
+                <label class = "small" id="innerportnum" for="ainner">Inner Port - Number of Power Cells</label>
+                <div class="input-group" id="ainnform">
+                    <input value="0" name="tinn" class="form-control" min="0" type="number" id="inner">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" onclick="decrValue('inner')" type="button">-</button>
+                        <button class="btn btn-outline-secondary" onclick="incrValue('inner')" type="button">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group col-md">
+                <label class = "small" id="innerportnum" for="ainner">Missed&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;Number of Power Cells</label>
+                <div class="input-group" id="ainnform">
+                    <input value="0" name="tinn" class="form-control" min="0" type="number" id="missed">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" onclick="decrValue('missed')" type="button">-</button>
+                        <button class="btn btn-outline-secondary" onclick="incrValue('missed')" type="button">+</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+          
+        <h3>Wheel of Fortune</h3>
+      
+        <fieldset class="form-group">
+            <div class="row">
+                
+                <legend class="col-form-label col-sm-2 pt-0"><b>Control Panel - Stage 2</b></legend> 
+                
+                <div class="col-sm-10">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="wolj1" id="spin2" value="0">
+                      <label class="form-check-label" for="spin2">Did&nbsp;NOT&nbsp;spin</label>
+                    </div>
+                    
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="wolj1" id="nospin2" value="1">
+                      <label class="form-check-label" for="nospin2">DID&nbsp;spin&nbsp;-&nbsp;Moved&nbsp;to&nbsp;Stage&nbsp;2</label>
+                    </div>
+                </div>
+                
+            </div>
+        </fieldset>
+        
+        
+        <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0"><b>Control Panel - Stage 3</b></legend> 
+                <div class="col-sm-10">
+                    <div class="form-check form-check form-check-inline ">
+                      <input class="form-check-input" type="radio" name="wolj2" id="spin3" value="0">
+                      <label class="form-check-label" for="spin3">Did&nbsp;NOT&nbsp;spin</label>
+                    </div>
+                    <div class="form-check form-check form-check-inline col-s-1">
+                      <input class="form-check-input" type="radio" name="wolj2" id="nospin3" value="1">
+                      <label class="form-check-label" for="nospin3">DID&nbsp;spin&nbsp;-&nbsp;Moved&nbsp;to&nbsp;Stage&nbsp;3</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        
+    <h3>Defense</h3>
+        
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0"><b>DefendED</b></legend> 
+            
+            <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="defed" id="defended" value="1">
+              <label id="def" class="form-check-label" for="defended">Defended</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="defed" id="nodefended" value="0">
+              <label id="nodef" class="form-check-label" for="nodefended">NOT&nbsp;defended</label>
+            </div>
+            </div>
+        </div>
+     </fieldset>
+       
+    <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0"><b>DefendING</b></legend> 
+        
+            <div class="col-sm-10">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="defing" id="defending" value="1">
+                  <label id="def1" class="form-check-label" for="defending">Defending</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="defing" id="nodefending" value="0">
+                  <label id="nodef2" class="form-check-label" for="nodefending">NOT&nbsp;defending</label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+        
+    <h3>Climbing</h3>
+        
+    <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0"><b>Hanging Switch</b></legend> 
+        
+            <div class="col-sm-10">
+                <div class="form-check form-check-inline col-s-1">
+                  <input class="form-check-input" type="radio" name="hang" id="yesclimb" value="1">
+                  <label class="form-check-label" for="yesclimb">DID&nbsp;Climb&nbsp;and&nbsp;Stayed</label>
+                </div>
+                <div class="form-check form-check-inline col-s-1">
+                  <input class="form-check-input" type="radio" name="hang" id="noclimb" value="0">
+                  <label class="form-check-label" for="noclimb">Did&nbsp;NOT&nbsp;Climb&nbsp;or&nbsp;Fell</label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+        
+    <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0"><b>Parking</b></legend> 
+          <div class="col-sm-10">
+        
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="park" id="yespark" value="1">
+                  <label class="form-check-label" for="yespark">Parked&nbsp;in&nbsp;Rendezvous&nbsp;Zone</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="park" id="nopark" value="0">
+                  <label class="form-check-label" for="nopark">DIDN'T&nbsp;Park&nbsp;in&nbsp;Rendezvous&nbsp;Zone</label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+        
+       
+       <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0"><b>Hanging Switch Status</b></legend> 
+            <div class="col-sm-10">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="lvl" id="levelswitch" value="1">
+                  <label class="form-check-label" for="levelswitch">Level&nbsp;Switch&nbsp;with&nbsp;Robots</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="lvl" id="noswitch" value="0">
+                  <label class="form-check-label" for="noswitch">Unlevel&nbsp;Switch&nbsp;or&nbsp;No&nbsp;Robots</label>
+                </div>
+            </div>
+         </div>
+     </fieldset>
+     
+     <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0"><b>Hanging Switch Reposition</b></legend> 
+          
+          <div class="col-sm-10">
+                <div class="form-check form-check-inline ">
+                  <input class="form-check-input" type="radio" name="bar" id="yesrepos" value="1">
+                  <label class="form-check-label" for="yesrepos">CAN&nbsp;Reposition&nbsp;on&nbsp;the&nbsp;Switch</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="bar" id="norepos" value="0">
+                  <label class="form-check-label" for="norepos">CAN'T&nbsp;Reposition&nbsp;on&nbsp;the&nbsp;Switch</label>
+                </div>
+            </div>
+        </div>
+       </fieldset>
+       
+    <h2>ENDGAME</h2>
+       
+       <div class="form-group row"> 
+            <label id="finalalliancescore" class="col-sm-2 col-form-label" for="finalscore">Final Alliance Score</label>
+            <div class="col-md-10">
+                <input value="0" name="ascore" class="form-control" min="0" type="number" id="finalscore">
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="submit">Submit Data</button>
+    </form>
+    
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+    <script>
+                function incrValue(idname) {
+                    var value = parseInt(document.getElementById(idname).value, 10);
+                    value = isNaN(value) ? 0 : value;
+                    value++;
+                    document.getElementById(idname).value = value;
+                }
+                function decrValue(idname) {
+                    var value = parseInt(document.getElementById(idname).value, 10);
+                    value = isNaN(value) ? 0 : value;
+                    value--;
+                    if(value<0){
+                        value=0;
+                    }
+                    document.getElementById(idname).value = value;
+                }
+    </script>
+  
+  </body>
+</html>
