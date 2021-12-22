@@ -8,25 +8,25 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    
+
     <link rel="stylesheet" href="something.css">
     <title>Scouting</title>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
   <body>
-      
+
     <style>
         body{
             background-image: url('https://www.firstinspires.org/sites/default/files/uploads/resource_library/brand/first-rise/wallpaper/FIRST-RISE-wallpaper-night-city-programs-vert-desktop.jpg');
             background-repeat: no-repeat;
             background-size: cover;
         }
-    </style> 
-    
+    </style>
+
     <div style="background:white;width:450px;height:550px;border-radius:25px;margin-left:22.5%;margin-top:8%;text-align:center;padding-top:1%;">
         <h1 style="font-size:49px;">Welcome to Scouting 2020!</h1>
         <h2 style="text-align:center;color:black;">Login with Google</h2>
-        
+
         <form action="?" method="POST">
           <meta name="google-signin-client_id" content="AIzaSyAF6bfHuLWOPvMdgbxK3VljLQNFMos_3SI">
         <meta name="google-signin-client_id" content="602921076190-pe6i4ktnon51hg2jmg0udclpolebao7b.apps.googleusercontent.com">
@@ -50,7 +50,7 @@
           });
         }
       </script>
-    
+
       <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
           <!--<div style="margin-top:10%;margin-left:16%;" id="example3"></div>-->
           <div style="margin-top:15%;margin-left:22.5%;margin-bottom:5%;" id="my-signin2"></div>
@@ -62,61 +62,14 @@
             <img style="height:87.6px;width:282px;margin-top:9%;" src="https://social.ford.com/content/ford-steam/programs/first-robotics/_jcr_content/heading-par/image.img.png/1505490844837.png">
         </div>
     </div>
-    
-    
+
+
     <?php
-    
+
     // unneccessary capcha stuff
     // START RECAPTCHA SCREENING
 
-// if(!isset($_SESSION["robot"])) {
-   
-//     echo "<script src='https://www.google.com/recaptcha/api.js' async defer></script>";
-   
-//     if (!empty($_POST)) {
-//         $post_data = http_build_query(
-//     array(
-//         'secret' => '6Ld7M7MUAAAAAJgnUgiKd_Li8Snury-0RtdmFcPn',
-//         'response' => $_POST['g-recaptcha-response'],
-//         'remoteip' => $_SERVER['REMOTE_ADDR']
-//     )
-// );
-// $opts = array('http' =>
-//     array(
-//         'method'  => 'POST',
-//         'header'  => 'Content-type: application/x-www-form-urlencoded',
-//         'content' => $post_data
-//     )
-// );
-// $context  = stream_context_create($opts);
-// $response = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
-// $result = json_decode($response);
-// if (!$result->success) {
-//     throw new Exception('Gah! CAPTCHA verification failed.', 1);
-// } else {
-//     $_SESSION["robot"] = 1;
-//     header("Refresh:0");
-// }
-
-//     } else {
-       
-//         echo '
-//               <script type="text/javascript">
-//       var onloadCallback = function() {
-//         grecaptcha.render("example3", {
-//           "sitekey" : "6Ld7M7MUAAAAADRhWYEq141iSneMPS_t8K4Q05E-",
-//           "theme" : "dark"
-//         });
-//       };
-//     </script>
-   
-//     <!-- POSTs back to the pages URL upon submit with a g-recaptcha-response POST parameter. -->
-   
-//     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-//         async defer>
-//     </script>';
-//     }
-// }
+    // deleted
 
 // END RECAPTCHA SCREENING
     ?>
