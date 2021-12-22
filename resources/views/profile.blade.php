@@ -1,46 +1,41 @@
-@extends('layouts.main')
+@extends('layouts.layout')
 
-<!-- Page title -->
-@section('title', 'Profile | Team 1676 Scouting')
+@section('title')
+Your Profile
+@endsection
 
-@section('content')
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-body">
-                <h1>User Profile</h1>
-                <form method="POST" action="">
-                    @method('PUT')
-                    @csrf
-                <ul id="profileinfo">
-                    <li>Name: <span id="initname">{{ $user->first_name }} {{ $user->last_name }}</span></li>
-                    <li>Email: <span id="initemail">{{ $user->email }}</span></li>
-                    <li>Role: <span id="initrole">{{ $user->roles()->first()->name }}</span></li>
-                    <select style="display:none;" id="role" name="role">
-                        @foreach($roles as $role)
-                        <option value="{{ $role->id }}">{{ $role->name }}</option>
-                        @endforeach
-                    </select>
-                </ul>
-                <!--My Code from 02/13/2019-->
-                @can('update-settings') <button type="button" class="btn btn-primary" onclick="myEdit()" style="display:block-inline;" id="edit">Edit</button>@endcan<button type="submit" class="btn btn-primary" style="margin-left:10px; display:none;" id="save" onclick="myEdit()">Save Changes</button>
-                </form>
-                
-                <script>
-                    function reviseText(element){
-			            document.getElementById('initrole').innerHTML =  element.value;
-                    }
-                    function myEdit() {
-                        document.getElementById("role").style.display='inline-block';
-                        document.getElementById("save").style.display='inline-block';
-                    }
-                </script>
-                <!--End of my Code-->
-            </div>
+
+<div class = "container mt-5">
+    <!--<div class = "card mt-5" ></div>-->
+   <!-- the div above is a spacer -->
+    <!--<div class="card mt-5 ml-3" style="width: 80%;">-->
+         <!--<div class="card-body">-->
+           <h1 class="mt-5 text-center"> Your Profile </h1>
+        <!--</div>-->
+    <!--</div>-->
+    
+    <!--<div class="card mt-5">-->
+    <!--     <div class="card-body">-->
+          
+          
+    <div class="row">
+        <div class="col-md">
+          <!--<div class = "ml-3 mt-5" style="width: 80%;">-->
+            <ul class="list-group">
+            <li class="list-group-item"> Role: {{ $user->role->display_name }}  </li>    
+            <li class="list-group-item"> Name:    {{ $user->name }}            </li>
+            <li class="list-group-item"> Email:   {{ $user->email }}          </li>
+            <li class="list-group-item"> Created at: {{ $user->created_at}}    </li>
+            </ul>
+        <!--</div>-->
         </div>
     </div>
+            
+    <!--    </div>-->
+    <!--</div>-->
+    
+    
+    
+    
+    
 </div>
-@endsection
-
-@section('custom_scripts')
-@endsection

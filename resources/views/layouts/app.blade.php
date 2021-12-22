@@ -9,18 +9,19 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Scripts -->
+    <script src="{{ asset('public/js/app.js') }}" defer></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bs-stepper.min.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -37,27 +38,6 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- other links-->
-                        @can('scout')
-                        <li class="nav-item">
-                                <a class="nav-link" href="{{ route('scout') }}">Scout</a>
-                            </li>
-                        @endcan
-                        @can('view-data')
-                        <li class="nav-item">
-                                <a class="nav-link" href="{{ route('rawdata') }}">Rawdata</a>
-                            </li>
-                        @endcan
-                        @can('view-all-data')
-                        <li class="nav-item">
-                                <a class="nav-link" href="{{ route('teams') }}">Teams</a>
-                            </li>
-                        @endcan
-                        @can('view-all-data')
-                        <li class="nav-item">
-                                <a class="nav-link" href="{{ route('matchpage') }}">Match View</a>
-                            </li>
-                        @endcan
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -71,14 +51,10 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}<span class="caret"></span>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/user/{{ Auth::user()->id }}">Profile</a>
-                                    @can('update-settings')
-                                    <a class="dropdown-item" href="/settings">Settings</a>
-                                    @endcan
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -99,15 +75,6 @@
         <main class="py-4">
             @yield('content')
         </main>
-        
     </div>
-    
-        <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<script src="{{ asset('js/bs-stepper.min.js') }}"></script>
-	<script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

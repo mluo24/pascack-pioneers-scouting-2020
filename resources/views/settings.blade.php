@@ -1,10 +1,14 @@
-@extends('layouts.main')
+@extends('layouts.layout')
+
+@section('title')
+settings
+@endsection
 
 <!-- Page title -->
 @section('title', 'Settings | Team 1676 Scouting')
 
 @section('content')
-<!--<div class="container">-->
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -36,15 +40,15 @@
                     
                     <h2>Change Global Competition</h2>
                     <div class="alert alert-warning">
-                        Current Competition (in database): {{ $current->name }}  
+                        Current Competition (in database): {{ $current->name }}
                     </div>
-                    <form method="post" action="{{ route('settings.store') }}">
+                    <form method="post" action="{{ route('settings.change') }}">
                         @csrf
                         <div class="form-group">
-                            <label for="competition">Competition</label>
-                            <select class="form-control" id="competition" name="competition" required>
-                                @foreach($competitions as $competition)
-                                  <option value="{{ $competition->slug }}" @if($competition->active) selected @endif>{{ $competition->name }}</option>
+                            <label for="event">Competition</label>
+                            <select class="form-control" id="event" name="event" required>
+                                @foreach($events as $event)
+                                  <option value="{{$event->id}}" @if($event->active) selected @endif>{{ $event->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -53,8 +57,9 @@
                     </div>
                     <div class="col-md">
                     <h2>Upload Match Info</h2>
-                    <form method="post" action="{{ route('settings.store') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('settings.change') }}" enctype="multipart/form-data">
                         @csrf
+                        <p>Format of CSV should be <code>match, red1, red2, red3, blue1, blue2, blue3</code>.
                         <div class="form-group">
                             <input class="form-control-file" type="file" name="csvfile" id="csvfile" accept=".csv" required>
                         </div>
@@ -67,5 +72,5 @@
             </div>
         </div>
     </div>
-<!--</div>-->
+</div>
 @endsection
