@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    
+    <body>
+        <canvas id="canvas" width="1000" height="500"></canvas> 
+        <canvas id="field" width="1000" height="500"></canvas>
+        <style>
+        #canvas{
+            margin: 0px;
+            box-sizing: border-box;
+            background-image: url("https://i.postimg.cc/y6crwnXy/blueberries.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin-top:1%;
+            margin-bottom:-9%;
+            width:70%;
+            height:70%;
+        }
+        #field{
+            margin: 0px;
+            box-sizing: border-box;
+            background-image: url("https://i.postimg.cc/y6crwnXy/blueberries.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin-top:5%;
+            margin-bottom:-9%;
+            width:70%;
+            height:70%;
+        }
+        </style>
+        
+        <script>
+            blues = function(ctx) {
+                ctx.strokeStyle = "#007BFF";
+                ctx.strokeRect(110, 85, 85, 85);
+                this.clicked=function(x, y){
+                  alert("You clicked on blue shooting." + x + ", " + y);
+                }
+            };
+            
+            redp = function(ctx) {
+                ctx.strokeStyle = "red";
+                ctx.strokeRect(110, 230, 85, 85);
+                this.clicked=function(x, y){
+                  alert("You clicked on red pickup." + x + ", " + y);
+                }
+            };
+            
+            bluep = function(ctx) {
+                ctx.strokeStyle = "#007bff";
+                ctx.strokeRect(800, 85, 85, 85);
+                this.clicked=function(x, y){
+                  alert("You clicked on blue pickup." + x + ", " + y);
+                }
+            };
+            
+            reds = function(ctx) {
+                ctx.strokeStyle = "red";
+                ctx.strokeRect(800, 230, 85, 85);
+                this.clicked=function(x, y){
+                  alert("You clicked on red shooting." + x + ", " + y);
+                }
+            };
+            
+            bcp = function(ctx) {
+                ctx.strokeStyle = "#007bff";
+                ctx.strokeRect(520, 20, 60,60);
+                this.clicked=function(x, y){
+                  alert("You clicked on blue control panel." + x + ", " + y);
+                }
+            };
+            
+            rcp = function(ctx) {
+                ctx.strokeStyle = "red";
+                ctx.strokeRect(418, 325, 60, 60);
+                this.clicked=function(x, y){
+                  alert("You clicked on red control panel." + x + ", " + y);
+                }
+            };
+            
+function init() {
+  var canvas = document.getElementsByTagName("canvas")[0];
+  var canvas = document.getElementsByTagName("field")[0];
+  var ctx = canvas.getContext('2d');
+  var bigBlue = new blues(ctx);
+  var bigRed = new redp(ctx);
+  var bigGreen = new bluep(ctx);
+  var bigYellow = new reds(ctx);
+  var bigWhite = new bcp(ctx);
+  var bigPurple = new rcp(ctx);
+  function getCursorPosition(canvas, event) {
+    const rect = canvas.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    return [x, y]
+}
+    canvas.addEventListener('mousedown', function(e) {
+        var stuff = getCursorPosition(canvas, e)
+        if (110 < stuff[0] && stuff[0] < 110 + 85 && 85 < stuff[1] && stuff[1] < 85 + 85 )
+            bigBlue.clicked(stuff[0], stuff[1])
+        if (110 < stuff[0] && stuff[0] < 110 + 85 && 230 < stuff[1] && stuff[1] < 230 + 85 )
+            bigRed.clicked(stuff[0], stuff[1])
+        if (800 < stuff[0] && stuff[0] < 800 + 85 && 85 < stuff[1] && stuff[1] < 85 + 85 )
+            bigGreen.clicked(stuff[0], stuff[1])
+        if (800 < stuff[0] && stuff[0] < 800 + 85 && 230 < stuff[1] && stuff[1] < 230 + 85 )
+            bigYellow.clicked(stuff[0], stuff[1])
+        if (520 < stuff[0] && stuff[0] < 520 + 60 && 20 < stuff[1] && stuff[1] < 20 + 60 )
+            bigWhite.clicked(stuff[0], stuff[1])
+        if (418 < stuff[0] && stuff[0] < 418 + 85 && 325 < stuff[1] && stuff[1] < 325 + 85 )
+            bigPurple.clicked(stuff[0], stuff[1])
+    })
+//   $('#canvas').click(function(e){
+//         var x = e.clientX
+//           , y = e.clientY          
+//         console.log(x + " , " + y);
+//         if(x<100&&y<100)   
+//           bigGreen.clicked(x, y)
+//   });    
+}
+
+$(document).ready(function() {
+    init();   
+});
+        </script>
+  
+    </body>
+</html>
